@@ -1,0 +1,9 @@
+
+
+<h2>Posts</h2>
+<% @posts.last(10).each do |post| %>
+  <div class="content"><%= post.content %></div>
+  <div><p>User ID: <%= post.user_id %> </p></div>
+  <div class="category"><%= post.category %></div>
+  <div class="title"><%= post.title %></div>
+<% end %>

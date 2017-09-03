@@ -1,0 +1,51 @@
+<h3>Current User:</h3>
+<%= @user.username %>
+<h4>About:</h4>
+<%= @user.about %>
+<h5>Portfolio</h5>
+<%= @user.portfolio %>
+<h5>Quest_book</h5>
+<%= @user.quest_book %>
+<br>
+<br>
+
+<form action="/destroy_user" method="post">
+    <input type="submit" value="Delete your account">
+</form>
+
+<hr>
+
+<form action="/edit_user" method="post">
+<p class="toblog">Want to edit your account?</p>
+    <input type="text" name="password" placeholder="Password">
+    <input type="text" name="portfolio"    placeholder="portfolio">
+    <input type="text" name="about" placeholder="about">
+    <input type="text" name="quest_book" placeholder="quest_book">
+    <input type="submit" />
+</form>
+
+
+<form action="/post" method="post">
+<p class="topost">What's on your mind??</p>
+        <input type="text" name="title"
+        placeholder = "Title" >
+
+        <input type="text" name="category"
+        placeholder="Category">
+
+        <textarea rows="4" cols="50" maxlength="150" name="content"
+        placeholder="Enter text here..."></textarea>
+        <input type="submit">
+</form>
+
+<br>
+<hr>
+<% @blogs.each do |blog| %>
+
+<div class="title"><%= blog.title %></div>
+<div class="category"><%= blog.category %></div>
+<div class="content"><%= blog.content %></div>
+<div><p>User ID: <%= blog.user_id %> </p></div>
+
+
+<% end %>
